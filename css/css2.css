@@ -1,0 +1,147 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    background-image: url("../img/sunset.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content{
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 2fr 20fr 0.5fr;
+    grid-template-areas:
+	    "header header"
+	    "left right"
+	    "footer footer";
+} 
+
+#header{
+	font-size: 60px;
+    grid-area: header;
+	margin: 0 auto;
+	text-align: right;
+	float: left;
+	color: #ffffff;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+.left{
+    grid-area: left;
+	margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+	width: 100%;
+}
+
+#UL{
+    background-color: #507B9C;
+    flex: 7 1 0;
+    border: 2px solid black;
+    margin: 1px;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#LL{
+    background-color: #FF0000;
+    flex: 3 1 0;
+    border: 2px solid black;
+    margin: 1px;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.right{
+    grid-area: right;
+	margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    width: 100%;
+}
+
+#UR{
+    display: flex;
+    flex-direction: column;
+    flex: 4 1 0;
+    margin: 1px;
+    overflow: auto;
+}
+
+.year{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1 1 0;
+    margin: 5px;
+}
+
+.semester{
+    height: 100%;
+    flex: 1 1 0;
+	margin-right: 5px;
+	margin-left: 5px;
+	padding-left: 5px;
+    background: rgba(255, 0, 0, 0.75);
+    border-radius: 5px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-out;
+    font-size: 20px;
+    color: white;
+}
+
+.semester > *{
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    width: 95%;
+}
+
+#LR{
+    margin-top: 3px;
+    flex: 1 1 0;
+    background-color: #507B9C;
+    border: 2px solid black;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+footer{
+    display: flex;
+    grid-area: footer;
+    vertical-align: text-bottom;
+}
+footer > *{
+    color: white;
+    margin: 2px;
+    transition: all 0.3s ease-out;
+    background-color: #072F5F;
+    opacity: 0.75;
+    border-radius: 8px;
+}
+
+.button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    filter: brightness(120%);
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #072F5F, 0 0 20px #072F5F, 0 0 30px #1261A0 , 0 0 40px #3895D3 , 0 0 50px #ff0000 , 0 0 60px #ff0000 , 0 0 70px #ff0000 ;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #072F5F, 0 0 30px #072F5F , 0 0 40px #ff0000 , 0 0 50px #ff0000 , 0 0 60px #ff0000 , 0 0 70px #ff0000 , 0 0 80px #ff0000 ;
+  }
+}
