@@ -19,6 +19,39 @@ class Plan{
 
 
         //code for sorting courses by year/term
+        //Checking each course for the year
+        for(const crs of this.courses){
+            //Seeing if the year already exists in year array
+            let NewYr = true;
+            for(const yr of this.years){
+                if((crs.term == "fall" && crs.year == yr.year) || (crs.term != "fall" && crs.year-1 == yr.year)){
+                    NewYr = false;
+                }
+            }
+            //Creating new year object if doesn't exist
+            if(NewYr){
+                this.years.push(new Year(crs.year));
+            }
+        }
+        //Adding courses into proper semester and year
+        for(const yr of this.years){
+            //Scanning through each course
+            for(const crs of this.courses){
+                //Placing the course that matches the year
+                if((crs.term == "fall" && crs.year == yr.year) || (crs.term != "fall" && crs.year-1 == yr.year)){
+                    //Finding the correct semester
+                    if(crs.term == "fall"){
+                        yr.fall.push(crs);
+                    }
+                    if(crs.term == "spring"){
+                        yr.spring.push(crs);
+                    }
+                    if(crs.term == "summer"){
+                        yr.summer.push(crs);
+                    }
+                }
+            }
+        }
     }
 
     genHtml(){
